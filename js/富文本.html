@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wysiwyg" style="height: 100px;width: 300px;border:1px solid black" contenteditable>测试内容</div>
+<button data-name="copy">复制</button>
+<button data-name="cut">剪切</button>    
+<button data-name="paste">粘贴</button>    
+<button data-name="selectAll">全选</button>
+<button data-name="delete">删除</button>    
+<button data-name="forwarddelete">后删除</button>    
+<button data-name="removeFormat">清空格式</button>
+<button data-name="redo">前进一步</button>    
+<button data-name="undo">后退一步</button>
+<button data-name="print">打印</button>  
+
+    <button id="btn">提交</button>
+<script>
+var btns = document.getElementsByTagName('button');
+for(var i = 0; i < btns.length; i++){
+    btns[i].onclick = function(){
+        document.execCommand(this.getAttribute('data-name'));
+    }
+}
+var btn = document.getElementById('btn')
+btn.onclick = function(){
+    console.log(document.getElementById('wysiwyg').innerHTML)
+}
+
+</script>
+</body>
+</html>
