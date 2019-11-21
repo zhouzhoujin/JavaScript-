@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div>
+        111
+    </div>
+    <script src="jquery-3.4.1.min.js"></script>
+
+    <script>
+        $.ajax({
+            type: "get", //区分请求是get还是post
+            url: 'http://127.0.0.1:8000', //请求地址
+            async: true, //区分同步异步请求 默认true异步请求，等于false同步请求
+            contentType:'application/json;charset=utf-8',
+            xhrFields: { withCredentials: true },//设置XHR对象。例如，如果需要的话，你可以用它来设置withCredentials为true的跨域请求。
+            success: function (data) { //成功的返回
+                console.log('test'),
+                console.log(data,'111')
+            },
+        })
+
+        
+    </script>
+</body>
+
+</html>

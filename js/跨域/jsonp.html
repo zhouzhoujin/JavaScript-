@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //动态创建script标签，并请求
+        function addScriptTag(src){
+            var script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            script.src = src;
+            document.body.appendChild(script);
+        };
+//如：在onload后，跨域请求
+window.onload = function(){
+    addScriptTag('http://127.0.0.1:8080/jsonp?callback=monkey');
+    console.log('222')
+};
+console.log(window)
+//回调的方法,且必须为全局方法，不然会报错
+function monkey1(data){
+    console.log(data);
+};
+//动态添加script元素，该请求的查询字符串有一个callback参数，用来指定函数名、服务器收到这个请求以后，
+//会将数据放在回调函数的参数位置返回，然后因为script请求的脚本，会当做普通的js的代码运行，如果这时候
+//在全局环境下定义了与callback参数同名的函数，那么，这个函数将会立即执行
+        </script>
+
+</body>
+</html>

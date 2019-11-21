@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="myLinks">
+        <li id="goSomewhere">Go somewhere</li>
+        <li id="doSomething">Do something
+            <li>XXXXX</li>
+        </li>
+        <li id="sayHi">Say hi</li>
+      </ul>
+    <script>
+        //事件对象，在触发dom上的某个事件的时候，会产生一个事件对象event，这个对象包含着所有与事件相关的信息
+        //事件委托，冒泡机制，逐层冒泡，最后交给父元素处理，但由于事件对象event为参数，所以操作的是点击的
+        //而事件目标是我们点击的那个元素，即事件源
+    document.addEventListener("click", function (event) {
+        console.log(event.target)
+      var target = event.target;
+      var parent=document.getElementById("myLinks");
+      parent.removeChild(target)
+
+    })
+    </script>
+</body>
+</html>
