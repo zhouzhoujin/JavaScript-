@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        function waitHandle(){
+            var dtd = $.Deferred()
+            var wait = function(dtd){
+                var task = function(){
+                    console.log('执行完成')
+                    dtd.resolve('11')
+                }
+                setTimeout(task, 2000)
+                //return dtd
+                return dtd.promise()
+                //用promise的话，只可监听不可修改
+            }
+            return wait(dtd)
+        }
+        var w = waitHandle()
+        // w.then(()=>{
+        //     console.log('ok1')
+        // },()=>{
+        //     console.log('err1')
+        // })
+        // w.then(()=>{
+        //     console.log('ok2')
+        // },()=>{
+        //     console.log('err2')
+        // })
+          w.done(()=>{
+
+          })
+          w.fail(()=>{
+
+          })
+          //when方法只接收deferred对象
+        $.when(w)
+            .then((msg)=>{
+                console.log(msg)
+                return '22'
+            },()=>{
+                console.log('err1')
+            })
+            .then((msg)=>{
+                console.log(msg)
+            },()=>{
+                console.log('err2')
+            })
+        </script>
+</body>
+</html>

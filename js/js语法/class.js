@@ -110,7 +110,7 @@ Super1.prototype.sayName = function(){
 function Sub1(name,age){
     //继承属性
     Super1.call(this,name)//第二次
-    this.age = age
+    this.age = ageP
 }
 //继承方法
 Sub1.prototype = new Super1()//第一次

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="#app"></div>
+    <script type="text/javascript">
+        function loadImg(src){
+            var promise = new promise((resolve, rejecr) =>{
+                var img = document.createElement('img')
+                img.onload
+            })
+        }
+        //Promise.all 待全部完成之后，统一执行
+        promise.all([result1,result2]).then(datas =>{
+            console.log(datas[0],datas[1])
+        })
+        //promise.race 竞速，谁先完成，回调谁
+        promise.race([race1,race2]).then((data)=>{
+            console.log(data )
+        })
+    </script>
+</body>
+</html>

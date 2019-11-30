@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div>
+        111
+    </div>
+    <script src="jquery-3.4.1.min.js"></script>
+
+    <script>
+        var xhr = new XMLHttpRequest()
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                console.log(xhr.responseText)
+            }
+        }
+        xhr.withCredentials = true; //设置之后可以存cookie，需要后端指定地址，不能用*号
+        xhr.open('GET','http://127.0.0.1:8000')
+        //xhr.setRequestHeader('myhead','head-value')
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        xhr.send()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //     $.ajax({
+    //         type: "get", //区分请求是get还是post
+    //         url: 'http://127.0.0.1:8000', //请求地址
+    //         async: true, //区分同步异步请求 默认true异步请求，等于false同步请求
+    //         contentType:'application/json;charset=utf-8',
+    //         xhrFields: { withCredentials: true },//设置XHR对象。例如，如果需要的话，你可以用它来设置withCredentials为true的跨域请求。
+    //         success: function (data) { //成功的返回
+    //             console.log('test'),
+    //             console.log(data)
+    //         },
+    //     })
+   
+    //     //1.取cookie，document.cookie，先以分号分割，再以=分割，传入一个参数，取得它的值
+        
+        
+    //     //2bundleRenderer.renderToStream/**
+    //     //  * 获取对应名称的cookie
+    //     //  * @param name cookie的名称
+    //     //  * @returns {null} 不存在时，返回null
+    //     //  */
+    //     // var getCookie = function (name) {
+    //     //   var arr;
+    //     //   var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    //     //   if (arr = document.cookie.match(reg))
+    //     //     return unescape(arr[2]);
+    //     //   else
+    //     //     return null;
+    //     // };
+    //     function setCookie(name, value, day) {
+    //    if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+    //     var expires = day * 24 * 60 * 60 * 1000;
+    //      var date = new Date(+new Date()+expires);
+    //      document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+    //    }else{
+    //      document.cookie = name + "=" + escape(value);
+    //    }
+    //  }
+    //  setCookie('zjff','zfff',1)
+    //  setCookie('zjf2','zjf2',1)
+    //  console.log(document.cookie)
+    //  function get(key){
+    //      var cookie = document.cookie
+    //      var obj = {}
+    //      cookie.split(';').forEach((item) => {
+    //         var arr = item.split('=')
+    //         obj[arr[0].trim()] = arr[1].trim()
+    //      })
+    //      return obj[key]
+    //  }
+    //  var x = get('zjf2')
+    //  console.log(x)
+
+        
+    </script>
+</body>
+
+</html>

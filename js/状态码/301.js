@@ -5,16 +5,16 @@ http.createServer(function (req, res) {
   
 	if (req.url === '/')  {
      	res.writeHead(301, { // 301 - 永久重定向 第一次访问 /，还是经过服务器跳转到 /new ，第二次访问的时候，因为已经永久重定向了，在浏览器访问/， 由浏览器直接跳转到 /new，不需要经过服务器， 需要极其注意的是， 使用了 301 之后，访问 / 下面的数据就会被缓存下来，造成你下次更改 访问/ 的数据，也没有用，因为 访问/ 会直接拿缓存里面的数据， 除非用户清除缓存， 否则，数据永远是 第一次缓存下来的数据
-            'Location': '/new' 
+            'Location': '/300' 
         });
 
         res.end('');
  	};
-    if (req.url === '/new') {
+    if (req.url === '/301') {
         res.writeHead(200, {
             'Content-Type': 'text/html',
         });
-        res.end('<div> / 301 /new</div>')
+        res.end('<div> / 301 change/new</div>')
     }
     console.log('request comming',req.url);
 
